@@ -2,6 +2,7 @@ import java.util.Scanner;
 import model.Azulejos;
 import model.Circulo;
 import model.Lampada;
+import model.Taxi;
 import model.Temperatura;
 
 public class App {
@@ -50,6 +51,19 @@ public class App {
            double larguraP = prompt.nextDouble();
             double totalCxAzulejo = azulejos.calcularAzulejos( altura, comprimentoP,larguraP);
             System.out.printf("Total de caixas de azulejos necessária para colocar no seu cômodo: %.0f \n",totalCxAzulejo);
+            
+            Taxi taxi = new Taxi();
+            System.out.println("Digite a marcação inicial do seu odômetro:");
+            double odometroInicial = prompt.nextDouble();
+            System.out.println("Digite a marcação final do seu odômetro:");
+            double odometroFinal = prompt.nextDouble();
+            System.out.println("Digite a quantidade combustivel colocado no dia:");
+            double combustivelDia = prompt.nextDouble();
+            System.out.println("Digite o valor total recebido no dia:");
+            double valorDia = prompt.nextDouble();
+            double[] resultado = taxi.calcularConsumoLucro(odometroInicial,odometroFinal,combustivelDia,valorDia);
+            System.out.println("Média de consumo (Km/L): " + resultado[0]);
+            System.out.println("Lucro líquido do dia (R$): " + resultado[1]);
             
             prompt.close();
         }
