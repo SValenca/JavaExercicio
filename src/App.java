@@ -4,6 +4,7 @@ import model.Circulo;
 import model.Lampada;
 import model.Taxi;
 import model.Temperatura;
+import model.Voltas;
 
 public class App {
     
@@ -65,6 +66,15 @@ public class App {
             System.out.println("Média de consumo (Km/L): " + resultado[0]);
             System.out.println("Lucro líquido do dia (R$): " + resultado[1]);
             
+            Voltas voltas = new Voltas();
+            System.out.println("Digite o comprimento da pista em metros:");
+            double comprimentoPista = prompt.nextDouble();
+            System.out.println("Digite o número total de voltas:");
+            double totalDeVoltas = prompt.nextDouble();
+            System.out.println("Digite o número de voltas e o consumo do carro:");
+            double quantidadeAbaste = prompt.nextDouble();
+             double miniLitros = voltas.calcularLitros(comprimentoPista,totalDeVoltas,quantidadeAbaste);
+             System.out.printf("A quantidade mínima de combustível necessária é: %.2f litros\n", miniLitros);
             prompt.close();
         }
 }
